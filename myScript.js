@@ -1,9 +1,11 @@
-// We need to use jQuery for the following:
-
+// Prompt for player1 to enter name
 var player1 = prompt("Player One: Enter Your Name , you will be Blue");
+// Player1's color (blue)
 var player1Color = 'rgb(86, 151, 255)';
 
+// Prompt for player2 to enter name
 var player2 = prompt("Player Two: Enter Your Name, you will be Red");
+// Player1's color (red)
 var player2Color = 'rgb(237, 45, 73)';
 
 var game_on = true;
@@ -15,17 +17,18 @@ function reportWin(rowNum,colNum) {
   console.log(rowNum);
   console.log(colNum);
 }
-// Change the color of a button
+
+// Function that change the color of a button
 function changeColor(rowIndex,colIndex,color) {
   return table.eq(rowIndex).find('td').eq(colIndex).find('button').css('background-color',color);
 }
 
-// Report Back to current color of a button
+// function that reports Back to current color of a button
 function returnColor(rowIndex,colIndex) {
   return table.eq(rowIndex).find('td').eq(colIndex).find('button').css('background-color');
 }
 
-// Take in column index, returns the bottom row that is still gray
+// function that takes in column index, returns the bottom row that is still gray
 function checkBottom(colIndex) {
   var colorReport = returnColor(5,colIndex);
   for (var row = 5; row > -1; row--) {
@@ -36,12 +39,12 @@ function checkBottom(colIndex) {
   }
 }
 
-// Check to see if 4 inputs are the same color
+// function that checks to see if 4 consecutive inputs are the same color
 function colorMatchCheck(one,two,three,four){
   return (one===two && one===three && one===four && one !== 'rgb(128, 128, 128)' && one !== undefined);
 }
 
-// Check for Horizontal Wins
+// function that checks for Horizontal Wins
 function horizontalWinCheck() {
   for (var row = 0; row < 6; row++) {
     for (var col = 0; col < 4; col++) {
@@ -56,7 +59,7 @@ function horizontalWinCheck() {
   }
 }
 
-// Check for Vertical Wins
+// function that checks for Vertical Wins
 function verticalWinCheck() {
   for (var col = 0; col < 7; col++) {
     for (var row = 0; row < 3; row++) {
@@ -71,7 +74,7 @@ function verticalWinCheck() {
   }
 }
 
-// Check for Diagonal Wins
+// function for checking for Diagonal Wins
 function diagonalWinCheck() {
   for (var col = 0; col < 5; col++) {
     for (var row = 0; row < 7; row++) {
@@ -140,31 +143,3 @@ $('.board button').on('click',function() {
   }
 
 })
-
-
-
-// Helper function to help you understand Rows and Columns From A Table
-// http://stackoverflow.com/questions/788225/table-row-and-column-number-in-jquery
-//
-// $('.board button').on('click',function(){
-//   // This is the Column Number (starts at zero):
-//   console.log('This is the Column:');
-//   console.log($(this).closest("td").index());
-//   // This is the Row Number:
-//   console.log("This is the Row:");
-//   console.log($(this).closest("tr").index());
-//   console.log('\n');
-//   // This is a way to grab a particular cell (replace):
-//   // $('table').eq(rowIndex).find('td').eq(colIndex)
-// });
-
-// // Change color on click
-// $('.board button').on('click',function() {
-//   if($(this).css('background-color') === 'rgb(51, 51, 51)'){
-//     $(this).css('background-color','rgb(86, 151, 255)');
-//   }else if ($(this).css('background-color') === 'rgb(86, 151, 255)'){
-//     $(this).css('background-color','rgb(237, 45, 73)');
-//   }else{
-//     $(this).css('background-color','rgb(51, 51, 51)');
-//   }
-// });
