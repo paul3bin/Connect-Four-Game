@@ -1,14 +1,9 @@
-.table {
-  margin: auto;
-  width: 50%;
-  border: white;
-}
-
-.table button {
-  margin: 1px;
-  width: 80px;
-  height: 80px;
-  background-color: grey;
-  border-radius: 50%;
-  border: 4px solid black;
-}
+.board button {
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    border-radius: 50%;
+    border: 4px solid black; /*this gets rid of bootstrap shadow*/
+    margin: 1px;
+  }
+  
